@@ -2,12 +2,12 @@
 pragma solidity 0.6.6;
 
 import "./LinkTokenReceiver.sol";
-import "./interfaces/ChainlinkRequestInterface.sol";
-import "./interfaces/OracleInterface.sol";
-import "./interfaces/LinkTokenInterface.sol";
-import "./interfaces/WithdrawalInterface.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "../interfaces/ChainlinkRequestInterface.sol";
+import "../interfaces/OracleInterface.sol";
+import "../interfaces/LinkTokenInterface.sol";
+import "../interfaces/WithdrawalInterface.sol";
 import "./SafeMathChainlink.sol";
+import "./Ownable.sol";
 
 /**
  * @title The Chainlink Oracle contract
