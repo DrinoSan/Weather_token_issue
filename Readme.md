@@ -11,11 +11,15 @@ This is a simple composition of Api and Smart contracts to check the weather in 
 ### Todo
 1. Find Chainlink datafeed or whatever with needed data
    * If not avaiblable maybe run locale api server :/ ?
+     * [x] Will use own API server. Could not find adapter on Kovan
+     * [ ] Using Chainlink Alarm Clock to auto execute Contract
 2. Create Smartcontract
    * Deposit colleteral
    * Daily update for rain fall
    * Requesting Daily/Weekly/Monthly tokens from participants
+     * [ ] Will be solved with Chainlink Alarm Clock 
    * Issuing Tokens if Rainfall > threshold to all participants
+     * [ ] Chainlink Alarm Clock 
 3. Creating Scripts
    * Deploy
    * Basic Interaction
