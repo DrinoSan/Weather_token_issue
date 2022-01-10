@@ -8,6 +8,7 @@ import "../interfaces/LinkTokenInterface.sol";
 import "../interfaces/WithdrawalInterface.sol";
 import "./SafeMathChainlink.sol";
 import "./Ownable.sol";
+import "./IERC20.sol";
 
 /**
  * @title The Chainlink Oracle contract
@@ -33,6 +34,9 @@ contract Oracle is
     mapping(address => bool) private authorizedNodes;
     uint256 private withdrawableTokens = ONE_FOR_CONSISTENT_GAS_COST;
 
+    // Just to make sure I can transfer back my tokens
+    IERC20 public feelSafeToken;
+
     event OracleRequest(
         bytes32 indexed specId,
         address requester,
@@ -52,8 +56,9 @@ contract Oracle is
      * @dev Sets the LinkToken address for the imported LinkTokenInterface
      * @param _link The address of the LINK token
      */
-    constructor(address _link) public Ownable() {
+    constructor(address _link, address _feelSafeTokenAddress) public Ownable() {
         LinkToken = LinkTokenInterface(_link); // external but already deployed and unalterable
+        feelSafeToken = IERC20(_feelSafeTokenAddress);
     }
 
     /**
@@ -201,6 +206,13 @@ contract Oracle is
     {
         withdrawableTokens = withdrawableTokens.sub(_amount);
         assert(LinkToken.transfer(_recipient, _amount));
+    }
+
+    function withdraw_feel_safe_token(address _recipient, uint256 _amount)
+        public
+        onlyOwner
+    {
+        feelSafeToken.transfer(owner(), feelSafeToken.balanceOf(address(this)));
     }
 
     /**
