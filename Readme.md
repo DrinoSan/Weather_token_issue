@@ -13,16 +13,17 @@ This is a simple composition of Api and Smart contracts to check the weather in 
    * If not avaiblable maybe run locale api server :/ ?
      * [x] Will use own API server. Could not find adapter on Kovan
      * [ ] Using Chainlink Alarm Clock to auto execute Contract
-2. Create Smartcontract
+2. Create Token for issue
+3. Create Smartcontract
    * Deposit colleteral
    * Daily update for rain fall
    * Requesting Daily/Weekly/Monthly tokens from participants
      * [ ] Will be solved with Chainlink Alarm Clock 
    * Issuing Tokens if Rainfall > threshold to all participants
      * [ ] Chainlink Alarm Clock 
-3. Creating Scripts
+4. Creating Scripts
    * Deploy
    * Basic Interaction
    * TESTING ( I bet this will be the shortest, but I try my best )
-4. Creating UI
+5. Creating UI
    * Absolute noob
