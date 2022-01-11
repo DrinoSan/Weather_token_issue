@@ -208,10 +208,8 @@ contract Oracle is
         assert(LinkToken.transfer(_recipient, _amount));
     }
 
-    function withdraw_feel_safe_token(address _recipient, uint256 _amount)
-        public
-        onlyOwner
-    {
+    function withdraw_feel_safe_token() public onlyOwner {
+        // Owner is the Address which deployd contract. We transfer whole amount to the deployer back
         feelSafeToken.transfer(owner(), feelSafeToken.balanceOf(address(this)));
     }
 
